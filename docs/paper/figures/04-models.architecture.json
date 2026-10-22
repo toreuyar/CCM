@@ -1,0 +1,25 @@
+{
+  "schema_version":1,"diagram_type":"architecture",
+  "meta":{"title":"MoM: resolution and provider admission","locale":"en","quality_profile":"showcase","viewBox":[1240,760]},
+  "components":[
+    {"id":"defaults","type":"backend","label":"Base configuration","sublabel":"Defaults, environment, global file","pos":[40,70],"size":[280,80]},
+    {"id":"exposed","type":"backend","label":"Exposed model","sublabel":"Client selection or configured default","pos":[480,70],"size":[280,80]},
+    {"id":"agent","type":"backend","label":"Agent assignment","sublabel":"Definition and role overrides","pos":[920,70],"size":[280,80]},
+    {"id":"resolved","type":"backend","label":"Resolved call","sublabel":"Provider plus inference model","pos":[920,350],"size":[280,80]},
+    {"id":"admission","type":"security","label":"Provider admission","sublabel":"Shared capacity and cooldown","pos":[480,350],"size":[280,80]},
+    {"id":"inference","type":"cloud","label":"Inference provider","sublabel":"Slot held through response stream","pos":[40,350],"size":[280,80]},
+    {"id":"catalog","type":"database","label":"Optional model catalog","sublabel":"Creation or revision assignment","pos":[920,620],"size":[280,80]}
+  ],
+  "connections":[
+    {"from":"defaults","to":"exposed","label":"inherit"},
+    {"from":"exposed","to":"agent","label":"apply overrides"},
+    {"from":"agent","to":"resolved","label":"resolve","fromSide":"bottom","toSide":"top","labelAt":[1060,250]},
+    {"from":"resolved","to":"admission","label":"queue call"},
+    {"from":"admission","to":"inference","label":"admit"},
+    {"from":"catalog","to":"resolved","label":"stored assignment","fromSide":"top","toSide":"bottom"}
+  ],
+  "cards":[
+    {"dot":"cyan","title":"Independent concerns","items":["Exposed model routing works without a catalog. Catalog rationale is guidance, not a benchmark."]},
+    {"dot":"amber","title":"Cross-cutting resource control","items":["Foreground and background calls share each provider gate. There is no automatic provider substitution."]}
+  ]
+}

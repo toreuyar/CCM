@@ -1,0 +1,162 @@
+[
+  {
+    "name": "01-composition",
+    "diagram_type": "architecture",
+    "specification": {
+      "path": "01-composition.architecture.json",
+      "sha256": "7b8fb34138321c43bbd88fb2e8a9bacaa73e334149be2de0f4ed0e847ef10ade",
+      "bytes": 2027
+    },
+    "artifact": {
+      "path": "01-composition.html",
+      "sha256": "1149394a225b04f76a61d28419635681b9ad90ea0693f296487e1ade63d8bea4",
+      "bytes": 805003
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "failed",
+    "browser_reason": "Chrome DevTools write pipe failed (EPIPE); automated viewport acceptance is unavailable.",
+    "svg_visual_review": {
+      "status": "pending"
+    },
+    "correction_rounds": 2
+  },
+  {
+    "name": "02-agents",
+    "diagram_type": "architecture",
+    "specification": {
+      "path": "02-agents.architecture.json",
+      "sha256": "0ded7d4ead213773e88fe07eadbd72143258a7bfa242154b7d75a96c88b7392c",
+      "bytes": 1974
+    },
+    "artifact": {
+      "path": "02-agents.html",
+      "sha256": "40f0c4587a0a398712cbb0fec81faf4ee9fb33a981cb988138eb0cccffd8df7c",
+      "bytes": 803594
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "failed",
+    "browser_reason": "Local Chromium inspection failed (timeout or process exit); no full viewport acceptance claim.",
+    "svg_visual_review": {
+      "status": "passed",
+      "theme": "light",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    "correction_rounds": 1
+  },
+  {
+    "name": "03-workflows",
+    "diagram_type": "architecture",
+    "specification": {
+      "path": "03-workflows.architecture.json",
+      "sha256": "6db8e24c1811a7932603329c2c0b7512eb5f11bff58263c5a3ec533d19ef8229",
+      "bytes": 2095
+    },
+    "artifact": {
+      "path": "03-workflows.html",
+      "sha256": "b4a53384812518ea3b1b56174316baf49d139dbecbd46a536f280d5d830b084d",
+      "bytes": 804701
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "failed",
+    "browser_reason": "Local Chromium inspection failed (timeout or process exit); no full viewport acceptance claim.",
+    "svg_visual_review": {
+      "status": "passed",
+      "theme": "light",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    "correction_rounds": 1
+  },
+  {
+    "name": "04-models",
+    "diagram_type": "architecture",
+    "specification": {
+      "path": "04-models.architecture.json",
+      "sha256": "eeb08d889a8b5c7352e232b792b27c233d172f1fbb8052e2aebac0ac866cb8aa",
+      "bytes": 2043
+    },
+    "artifact": {
+      "path": "04-models.html",
+      "sha256": "b980681b85eda257b4928119aecf566ab815631b47788848e9ff28e08402a6c9",
+      "bytes": 804632
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "failed",
+    "browser_reason": "Local Chromium inspection failed (timeout or process exit); no full viewport acceptance claim.",
+    "svg_visual_review": {
+      "status": "passed",
+      "theme": "light",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    "correction_rounds": 1
+  },
+  {
+    "name": "05-improvement",
+    "diagram_type": "architecture",
+    "specification": {
+      "path": "05-improvement.architecture.json",
+      "sha256": "a5b57a36c5d7a0e356f9197a08d5248f01b5fa229f64aa66f1bf7c704b71beed",
+      "bytes": 2063
+    },
+    "artifact": {
+      "path": "05-improvement.html",
+      "sha256": "d9f14cf971599b8cac4dcb9993f93a9325296cf963cee866523d8b3a2fcc692d",
+      "bytes": 804799
+    },
+    "validation": {
+      "checksPassed": 9,
+      "checkCount": 9,
+      "compositionProfile": "showcase",
+      "compositionStatus": "pass",
+      "errors": 0,
+      "warnings": 0
+    },
+    "browser_evidence": "failed",
+    "browser_reason": "Local Chromium inspection failed (timeout or process exit); no full viewport acceptance claim.",
+    "svg_visual_review": {
+      "status": "passed",
+      "theme": "light",
+      "viewport": [
+        1440,
+        1000
+      ]
+    },
+    "correction_rounds": 1
+  }
+]

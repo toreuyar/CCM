@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>CCM · Control room</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2395d4c2'/%3E%3Ctext x='32' y='48' text-anchor='middle' font-size='48' font-family='sans-serif' fill='%230b1117'%3Ec%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="CCM home"><span class="brand-mark">c<span>·</span></span><strong>CCM</strong><span class="brand-divider"></span><span class="brand-sub">control room</span></a>
+    <nav id="dashboard-nav" class="dashboard-nav" aria-label="Dashboard navigation"><button class="active" data-page="executions" aria-current="page">Executions</button><button data-page="workforce">Workforce</button><button data-page="run">Run</button><button data-page="operations">Operations</button><button data-page="approvals">Approvals</button><button data-page="improvements">Improvements</button><button data-page="settings">Settings</button><button data-page="system">System</button><button data-page="admin">Administration</button></nav>
+    <div class="top-status"><span id="connection" class="connection connecting"><i></i>Connecting</span><span class="top-separator"></span><span class="mono" id="host"></span></div>
+    <div class="top-actions"><button id="logout" class="button subtle logout" type="button" hidden>Log out</button><button id="theme" class="icon-button" title="Switch color theme" aria-label="Switch color theme">◐</button><button id="toggle-inspector" class="icon-button" title="Toggle inspector" aria-label="Toggle inspector" hidden>▥</button></div>
+  </header>
+  <main id="auth-view" class="auth-view" hidden>
+    <section class="auth-card" aria-labelledby="auth-title">
+      <div class="eyebrow">PRIVATE DASHBOARD</div>
+      <h1 id="auth-title">Connect to CCM</h1>
+      <p>Enter your bearer access key to load this dashboard. The key is kept only for this browser session.</p>
+      <form id="auth-form">
+        <label for="auth-token">Bearer access key</label>
+        <input id="auth-token" name="access-key" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" required aria-describedby="auth-help auth-message">
+        <small id="auth-help">Your key is sent only in the Authorization header over this connection.</small>
+        <p id="auth-message" class="auth-message" role="alert" aria-live="assertive" hidden></p>
+        <button id="auth-submit" class="button primary" type="submit">Connect dashboard</button>
+      </form>
+    </section>
+  </main>
+  <div class="workspace" id="workspace" hidden>
+    <aside class="sidebar">
+      <button id="new-chat" class="new-chat"><span>＋</span> New conversation <kbd>N</kbd></button>
+      <div class="sidebar-tabs" role="tablist"><button class="active" data-sidebar="runs">Executions</button><button data-sidebar="conversations">Conversations</button></div>
+      <label class="search"><span>⌕</span><input id="search" placeholder="Search runs and IDs…" aria-label="Search runs"></label>
+      <div class="filter-row"><select id="status-filter" aria-label="Filter status"><option value="">All states</option><option value="active">Active</option><option value="error">Errors</option><option value="completed">Completed</option></select><select id="source-filter" aria-label="Filter source"><option value="">All sources</option><option value="web">Web chat</option><option value="external">API clients</option></select></div>
+      <div class="sidebar-section"><span id="list-heading">RECENT EXECUTIONS</span><span class="count" id="run-count">0</span></div>
+      <nav id="run-list" class="run-list" aria-label="Executions"></nav>
+      <button id="load-more" class="load-more" hidden>Load older runs ↓</button>
+      <footer class="sidebar-footer"><span class="status-dot completed"></span><div>History is preserved<small>Resets clear the workforce, not the record.</small></div></footer>
+    </aside>
+    <div class="resize-handle" data-resize="sidebar" role="separator" aria-label="Resize sidebar" tabindex="0"></div>
+    <main class="main-pane">
+      <section id="run-header" class="run-header"><div><div class="eyebrow" id="run-eyebrow">YOUR WORKFORCE, IN VIEW</div><h1 id="run-title" tabindex="-1">Execution workspace</h1><div class="run-subtitle" id="run-subtitle">Watch decisions unfold. Understand every handoff.</div></div><div class="run-actions"><button id="export" class="button subtle" disabled>↗ OTLP export</button><button id="pause-run" class="button subtle" disabled>Ⅱ Pause run</button></div></section>
+       <section class="metrics" id="metrics"><div><span class="metric-label">STATUS</span><strong id="metric-state">Ready</strong></div><div><span class="metric-label">OPERATIONS</span><strong id="metric-ops">—</strong></div><div><span class="metric-label">ELAPSED</span><strong id="metric-time">—</strong></div><div><span class="metric-label">MODEL TOKENS</span><strong id="metric-tokens">—</strong></div></section>
+       <section id="improvements" class="improvements" hidden aria-live="polite"></section>
+        <div id="view-toolbar" class="view-toolbar"><div class="view-tabs" role="tablist"><button class="active" data-view="flow">⌘ Execution</button><button data-view="timeline">≡ Timeline</button><button data-view="chat">◻ Foreman chat</button></div><label class="follow"><input id="follow" type="checkbox" checked><span>Follow live</span><i class="live-dot"></i></label></div>
+       <section id="workforce-view" class="view" hidden><div id="workforce-actions" class="workforce-actions"></div><div class="workforce-filters"><input id="workforce-search" placeholder="Search names, purposes or IDs" aria-label="Search workforce"><select id="workforce-kind" aria-label="Workforce kind"><option value="">Agents & workflows</option><option value="agent">Agents</option><option value="workflow">Workflows</option></select><select id="workforce-status" aria-label="Workforce status"><option value="">Active & retired</option><option value="active">Active</option><option value="retired">Retired</option></select></div><p id="workforce-note" class="workforce-note"></p><div id="workforce-list"></div></section>
+       <section id="control-view" class="view control-view" hidden aria-live="polite"></section>
+      <section id="flow-view" class="view flow-view"><div id="flow"></div></section>
+      <section id="timeline-view" class="view" hidden><div class="timeline-toolbar"><label><input id="show-deltas" type="checkbox"> Include token events</label><button id="load-history" class="button subtle">Load full timeline</button></div><div id="timeline" class="timeline"></div></section>
+      <section id="chat-view" class="view chat-view" hidden><div id="chat-history" class="chat-history" aria-live="polite"></div><form id="chat-form" class="chat-composer"><textarea id="chat-input" rows="3" placeholder="Give Foreman a task…" aria-label="Message Foreman"></textarea><div><span id="chat-hint">Native chat · uses the same CCM pipeline</span><button id="send-chat" class="button primary" type="submit">Send to Foreman ↗</button></div></form></section>
+      <footer class="main-footer"><span id="event-status">Waiting for an execution</span><span>ACTUAL EVENTS · IMMUTABLE HISTORY</span></footer>
+    </main>
+    <div class="resize-handle" data-resize="inspector" role="separator" aria-label="Resize inspector" tabindex="0"></div>
+    <aside class="inspector" id="inspector"><header class="inspector-header"><div><div class="eyebrow" id="inspector-eyebrow">OPERATION INSPECTOR</div><h2 id="inspector-title">Select an operation</h2></div><span id="inspector-status" class="badge">—</span></header>
+      <div class="inspector-tabs" role="tablist"><button class="active" data-inspector="conversation">Conversation</button><button data-inspector="definition">Definition</button><button data-inspector="raw">Raw data</button></div>
+      <div class="inspector-body" id="inspector-body"></div>
+      <section class="steering"><div class="steering-label"><span class="steering-icon">↳</span><strong>Direct this execution</strong><span id="steering-target" class="mono">No target</span></div><textarea id="guidance" rows="3" placeholder="A correction, constraint, or new direction…" aria-label="Operator guidance"></textarea><div class="steering-actions"><button id="guide" class="button primary" disabled>Send guidance</button><button id="interrupt" class="button amber" disabled>↯ Redirect</button><button id="pause-agent" class="icon-button" title="Pause selected agent at its next boundary" disabled>Ⅱ</button></div><p class="steering-help">Guidance is delivered before the next call. Redirect cancels the active call. Executed tools are not undone.</p><div id="controls" class="controls"></div></section>
+    </aside>
+  </div>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <dialog id="diff-dialog"><header><div><div class="eyebrow">IMMUTABLE DEFINITION HISTORY</div><h2 id="diff-title">Version comparison</h2></div><button id="close-diff" class="icon-button" aria-label="Close comparison">×</button></header><div class="diff-selects"><label>Before<select id="diff-before"></select></label><span>→</span><label>After<select id="diff-after"></select></label></div><div id="diff-body" class="diff-body"></div></dialog>
+  <dialog id="action-dialog" class="action-dialog"><header><div><div class="eyebrow" id="action-eyebrow">CONFIRM ACTION</div><h2 id="action-title">Confirm</h2></div><button id="action-close" class="icon-button" aria-label="Close confirmation">×</button></header><p id="action-description"></p><pre id="action-detail" hidden></pre><div class="dialog-actions"><button id="action-cancel" class="button subtle" type="button">Cancel</button><button id="action-confirm" class="button amber" type="button">Confirm</button></div></dialog>
+  <dialog id="token-dialog" class="token-dialog"><header><div><div class="eyebrow">ONE-TIME CREDENTIAL</div><h2>Copy this key now</h2></div><button id="token-close" class="icon-button" aria-label="Close credential">×</button></header><p>This bearer token is shown once and is not stored in this dashboard. Anyone with it can use the permissions shown for this key.</p><label for="issued-token">New access key</label><textarea id="issued-token" rows="4" readonly spellcheck="false" autocomplete="off"></textarea><div class="dialog-actions"><button id="token-copy" class="button subtle" type="button">Copy key</button><button id="token-done" class="button primary" type="button">I copied it</button></div></dialog>
+  <script type="module" src="/assets/app.js"></script>
+</body>
+</html>

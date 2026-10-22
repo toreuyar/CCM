@@ -1,0 +1,25 @@
+{
+  "schema_version":1,"diagram_type":"architecture",
+  "meta":{"title":"MoA: reusable agent lifecycle","locale":"en","quality_profile":"showcase","viewBox":[1240,760]},
+  "components":[
+    {"id":"request","type":"backend","label":"Foreman","sublabel":"Policy-authorized requirements","pos":[40,70],"size":[280,80]},
+    {"id":"generator","type":"backend","label":"Agent generator","sublabel":"Seven-provision definition","pos":[480,70],"size":[260,80]},
+    {"id":"registry","type":"database","label":"Registry","sublabel":"Validate, consolidate, register","pos":[920,70],"size":[280,80]},
+    {"id":"execute","type":"backend","label":"Specialist execution","sublabel":"Resolved model and client tools","pos":[920,350],"size":[280,80]},
+    {"id":"report","type":"backend","label":"Specialist report","sublabel":"Composition and held evidence","pos":[480,350],"size":[280,80]},
+    {"id":"evaluator","type":"backend","label":"Evaluator","sublabel":"Released background job","pos":[40,350],"size":[260,80]},
+    {"id":"revision","type":"database","label":"Definition outcome","sublabel":"Keep, revise or retire","pos":[40,620],"size":[260,80]}
+  ],
+  "connections":[
+    {"from":"request","to":"generator","label":"create"},
+    {"from":"generator","to":"registry","label":"definition"},
+    {"from":"registry","to":"execute","label":"assignment","fromSide":"bottom","toSide":"top","labelAt":[1060,250]},
+    {"from":"execute","to":"report","label":"result"},
+    {"from":"report","to":"evaluator","label":"after response"},
+    {"from":"evaluator","to":"revision","label":"evidence-backed verdict","fromSide":"bottom","toSide":"top","labelAt":[170,525]}
+  ],
+  "cards":[
+    {"dot":"cyan","title":"Creation is conditional","items":["Existing agents can be reused. Automatic creation timing is policy-controlled."]},
+    {"dot":"amber","title":"Scope of autonomy","items":["Definitions change; model weights do not. A capability description does not grant a tool."]}
+  ]
+}

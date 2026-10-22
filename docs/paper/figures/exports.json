@@ -1,0 +1,37 @@
+[
+  {
+    "source": "01-composition.html",
+    "source_sha256": "1149394a225b04f76a61d28419635681b9ad90ea0693f296487e1ade63d8bea4",
+    "svg": "01-composition.svg",
+    "svg_sha256": "7a871816dff426ae504888459090f4cda2e1822c04903378de2709c3941d1286",
+    "viewBox": "0 0 1240 760"
+  },
+  {
+    "source": "02-agents.html",
+    "source_sha256": "40f0c4587a0a398712cbb0fec81faf4ee9fb33a981cb988138eb0cccffd8df7c",
+    "svg": "02-agents.svg",
+    "svg_sha256": "dfe623cf692dc9b7d9d65ec7dc446755f458382f661a168e414590790ffd8941",
+    "viewBox": "0 0 1240 760"
+  },
+  {
+    "source": "03-workflows.html",
+    "source_sha256": "b4a53384812518ea3b1b56174316baf49d139dbecbd46a536f280d5d830b084d",
+    "svg": "03-workflows.svg",
+    "svg_sha256": "41d9d7059686a2b2c34c206a94885a0bb2654eb8d1f6d8dfe007f748ae3ffc5a",
+    "viewBox": "0 0 1240 760"
+  },
+  {
+    "source": "04-models.html",
+    "source_sha256": "b980681b85eda257b4928119aecf566ab815631b47788848e9ff28e08402a6c9",
+    "svg": "04-models.svg",
+    "svg_sha256": "10c433e540529ef91eab0a6d609b190c34dd465e4b1d6d7db34a43684700447d",
+    "viewBox": "0 0 1240 760"
+  },
+  {
+    "source": "05-improvement.html",
+    "source_sha256": "d9f14cf971599b8cac4dcb9993f93a9325296cf963cee866523d8b3a2fcc692d",
+    "svg": "05-improvement.svg",
+    "svg_sha256": "2efa2bc46030fc750af3dd684c6b8d408f130634ce087e2e1d4e704f5df63053",
+    "viewBox": "0 0 1240 760"
+  }
+]

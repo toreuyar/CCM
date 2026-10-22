@@ -1,0 +1,19 @@
+{
+  "personality_transparency": "introvert",
+  "creation_policy": "Dynamic",
+  "memory": { "budget_mib": 256 },
+  "default_model": "ccm-default",
+  "provider": "ollama-cloud",
+  "providers": {
+    "ollama-cloud": {
+      "base_url": "https://ollama.com/v1",
+      "api_key_env": "OLLAMA_CLOUD_API_KEY"
+    }
+  },
+  "models": {
+    "ccm-default": {
+      "provider": "ollama-cloud",
+      "model": "deepseek-v4.1-flash"
+    }
+  }
+}

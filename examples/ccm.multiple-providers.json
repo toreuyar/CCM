@@ -1,0 +1,21 @@
+{
+  "provider": "cloud",
+  "default_model": "ccm-cloud",
+  "personality_transparency": "flexible",
+  "providers": {
+    "cloud": {
+      "base_url": "https://ollama.com/v1",
+      "api_key_env": "OLLAMA_CLOUD_API_KEY",
+      "max_concurrent_requests": 2,
+      "recovery": { "cooldown_ms": 30000, "max_cooldown_ms": 300000 }
+    },
+    "local": { "base_url": "http://127.0.0.1:11434/v1" }
+  },
+  "models": {
+    "ccm-cloud": { "provider": "cloud", "model": "deepseek-v4.1-flash" },
+    "ccm-local": { "provider": "local", "model": "qwen3:8b" }
+  },
+  "agents": {},
+  "agent_models": {},
+  "generated_agent_default": {}
+}

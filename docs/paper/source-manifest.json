@@ -1,0 +1,87 @@
+{
+  "evidence_cutoff": "2026-10-10",
+  "baseline_label": "CCM packaged implementation",
+  "scope": "SHA-256 manifest of the packaged CCM implementation. Paper engineering results retain their separately stated evidence cutoff; these hashes identify current files, not a benchmark run.",
+  "files": [
+    {
+      "path": "src/main.rs",
+      "sha256": "5dc278b4525ccc79366f6eb0d605e5088efdf9a8648f223a10c9ed84e8662b6d"
+    },
+    {
+      "path": "src/handlers.rs",
+      "sha256": "2817822f03cbc847af1c469131a77bab317f3ba506eafec275305b90d2ae7a62"
+    },
+    {
+      "path": "src/foreman.rs",
+      "sha256": "64c3e24c9f3a19ed2fd226ba17e4976f97b7c4e9b280139869266dae3e3ef525"
+    },
+    {
+      "path": "src/foreman_protocol.rs",
+      "sha256": "3a753c13067331cefb4a1fbecb4182ee6876dba21eb341f03604506a235caf07"
+    },
+    {
+      "path": "src/runtime.rs",
+      "sha256": "5d2e3f95ceb2ff4f7504c394d61e795e11ec8a8a775e3d07ce45610376583c8e"
+    },
+    {
+      "path": "src/workflow.rs",
+      "sha256": "dca425c356023d90ca4fdd00c0e1ee75a0832ee41d0fb6a12a93b6ca5af31cc3"
+    },
+    {
+      "path": "src/meta.rs",
+      "sha256": "737f76494721b8f3b96999c0710b5d2b75ea847a7b3c06f1b1ff7cc2268e0256"
+    },
+    {
+      "path": "src/registry.rs",
+      "sha256": "922b10bf28af3f59ec9929c5d3f972d0bdebcfa208a570954641571fad72a38d"
+    },
+    {
+      "path": "src/model_config.rs",
+      "sha256": "7e87e11ce76672e5fa3d5c8a4d612d84d226a0a3cff94bc3008756e570b17147"
+    },
+    {
+      "path": "src/config.rs",
+      "sha256": "cf692cda694dea9153fafbd53516c2ee11074763bfc74f240f1db66a20d68447"
+    },
+    {
+      "path": "src/policy.rs",
+      "sha256": "5ac236774c2200a39f5bcb44e3ae0d56a6b67241da38020a26efe3d5b6c87b24"
+    },
+    {
+      "path": "src/provider_gate.rs",
+      "sha256": "a15e277773fdb896e52701d0845bc07070682419de812a61c5107f1f7cd8dce0"
+    },
+    {
+      "path": "src/upstream.rs",
+      "sha256": "399b982230c4bdee52e2d5eb070ab2899f435e146d38fb8d3cab269930ecf8f7"
+    },
+    {
+      "path": "src/upstream_transport.rs",
+      "sha256": "3fc14064d4c5d4d9e93293509bbc3f5ecc7f81a7fe321d54fd96e249a4ec3ee4"
+    },
+    {
+      "path": "src/improvement.rs",
+      "sha256": "66ed60d0cc53a8dafd352816bd077fcf35a4fabdc26c5c1acd4d1d78f4421b49"
+    },
+    {
+      "path": "src/brief.rs",
+      "sha256": "4c6b28687322704f7ef496eaf650d2acd5206194cc2a11a0edb8862a8273864d"
+    },
+    {
+      "path": "src/transparency.rs",
+      "sha256": "c2270e8897c0ee26b7d749b4f52bc2d19b8affa3020db38cb14e3dfea4715c59"
+    },
+    {
+      "path": "src/storage.rs",
+      "sha256": "68b1faffd68d929c8083d55aabf5b024878871773bd2476ccdb94f0274dac8fb"
+    },
+    {
+      "path": "src/dashboard_cache.rs",
+      "sha256": "3fe55505c169a7a52cfced38921bf62b8f0fe6e5d16d50be0245ee5ef241ee7a"
+    },
+    {
+      "path": "src/loop_runner.rs",
+      "sha256": "b3ed51af417547321eb084968429d79d0e2edc81a9ea0edc2ea74403ee61c2d6"
+    }
+  ]
+}

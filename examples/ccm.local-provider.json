@@ -1,0 +1,10 @@
+{
+  "provider": "local",
+  "default_model": "ccm-local",
+  "providers": {
+    "local": { "base_url": "http://127.0.0.1:11434/v1" }
+  },
+  "models": {
+    "ccm-local": { "provider": "local", "model": "qwen3:8b" }
+  }
+}

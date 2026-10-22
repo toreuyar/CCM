@@ -1,0 +1,26 @@
+{
+  "schema_version":1,"diagram_type":"architecture",
+  "meta":{"title":"MoW: bounded workflow execution","locale":"en","quality_profile":"showcase","viewBox":[1240,760]},
+  "components":[
+    {"id":"entry","type":"database","label":"Selected workflow","sublabel":"Validated entry and stage IDs","pos":[40,70],"size":[280,80]},
+    {"id":"stage","type":"backend","label":"Execute current stage","sublabel":"Agent plus accumulated outputs","pos":[480,70],"size":[280,80]},
+    {"id":"branch","type":"backend","label":"Select next stage","sublabel":"First matching JSON branch","pos":[920,70],"size":[280,80]},
+    {"id":"next","type":"backend","label":"Advance or loop","sublabel":"Bounded by max_steps","pos":[480,350],"size":[280,80]},
+    {"id":"finish","type":"backend","label":"Workflow completes","sublabel":"next = null","pos":[920,350],"size":[280,80]},
+    {"id":"handoff","type":"external","label":"Client executes tools","sublabel":"Matched results resume stage","pos":[40,350],"size":[280,80]},
+    {"id":"limit","type":"backend","label":"Budget exhausted","sublabel":"Explicit failure, not completion","pos":[480,620],"size":[280,80]}
+  ],
+  "connections":[
+    {"from":"entry","to":"stage","label":"start"},
+    {"from":"stage","to":"branch","label":"report"},
+    {"from":"branch","to":"finish","label":"terminal transition","fromSide":"bottom","toSide":"top","labelAt":[1060,250]},
+    {"from":"branch","to":"next","label":"nonterminal"},
+    {"from":"next","to":"stage","label":"next stage","fromSide":"top","toSide":"bottom"},
+    {"from":"stage","to":"handoff","label":"tool pause"},
+    {"from":"next","to":"limit","label":"step limit reached","fromSide":"bottom","toSide":"top","labelAt":[620,525]}
+  ],
+  "cards":[
+    {"dot":"cyan","title":"Executable graph, one active stage","items":["This is a control-flow illustration, not a required task template. Parallel fan-out/join is not implemented."]},
+    {"dot":"amber","title":"Tool continuation","items":["The originating client executes supplied tools. Stored call IDs and ownership are checked before resuming."]}
+  ]
+}

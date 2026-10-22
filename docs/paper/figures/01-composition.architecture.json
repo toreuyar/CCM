@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {"title": "CCM: composition in CCM", "locale": "en", "quality_profile": "showcase", "viewBox": [1240, 760]},
+  "components": [
+    {"id":"client","type":"frontend","label":"Client","sublabel":"OpenAI-compatible request","pos":[40,70],"size":[240,80]},
+    {"id":"foreman","type":"backend","label":"Foreman","sublabel":"Select and compose","pos":[480,70],"size":[240,80]},
+    {"id":"response","type":"frontend","label":"Unified response","sublabel":"Answer or client tool handoff","pos":[920,70],"size":[280,80]},
+    {"id":"agents","type":"backend","label":"MoA: agents","sublabel":"Reuse or generate definitions","pos":[40,350],"size":[260,80]},
+    {"id":"workflows","type":"backend","label":"MoW: workflows","sublabel":"Bounded stage graph","pos":[480,350],"size":[240,80]},
+    {"id":"models","type":"cloud","label":"MoM: models","sublabel":"Resolve provider and model","pos":[480,620],"size":[260,80]},
+    {"id":"evaluation","type":"backend","label":"Evaluator","sublabel":"Post-response revisions","pos":[920,350],"size":[260,80]}
+  ],
+  "connections": [
+    {"from":"client","to":"foreman","label":"request"},
+    {"from":"foreman","to":"response","label":"compose"},
+    {"from":"foreman","to":"agents","label":"delegate"},
+    {"from":"foreman","to":"workflows","label":"execute","fromSide":"bottom","toSide":"top","labelAt":[600,250]},
+    {"from":"workflows","to":"models","label":"stage inference","fromSide":"bottom","toSide":"top"},
+    {"from":"agents","to":"models","label":"agent inference"},
+    {"from":"response","to":"evaluation","label":"release held jobs","fromSide":"bottom","toSide":"top"}
+  ],
+  "cards": [
+    {"dot":"cyan","title":"Composition, not weight mixing","items":["MoM, MoA and MoW describe orchestration views, not three independent runtime services."]},
+    {"dot":"amber","title":"Scope of this view","items":["Internal roles also use model resolution. Return paths and persistence are omitted for clarity."]}
+  ]
+}

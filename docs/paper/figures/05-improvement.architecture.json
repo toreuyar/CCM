@@ -1,0 +1,25 @@
+{
+  "schema_version":1,"diagram_type":"architecture",
+  "meta":{"title":"Response and improvement boundaries","locale":"en","quality_profile":"showcase","viewBox":[1240,760]},
+  "components":[
+    {"id":"evidence","type":"backend","label":"Task execution","sublabel":"Definition, task and report","pos":[40,70],"size":[280,80]},
+    {"id":"held","type":"database","label":"Held improvement","sublabel":"Not yet eligible for evaluation","pos":[480,70],"size":[280,80]},
+    {"id":"response","type":"frontend","label":"Foreman response","sublabel":"Compose and publish","pos":[920,70],"size":[280,80]},
+    {"id":"worker","type":"backend","label":"Improvement worker","sublabel":"One released job at a time","pos":[920,350],"size":[280,80]},
+    {"id":"verdict","type":"backend","label":"Evaluator verdict","sublabel":"Keep, revise or retire","pos":[480,350],"size":[280,80]},
+    {"id":"commit","type":"database","label":"Versioned mutation","sublabel":"Stale/reset guards and receipts","pos":[40,350],"size":[280,80]},
+    {"id":"future","type":"external","label":"Planned extension","sublabel":"Conversation-wide scheduling","pos":[920,620],"size":[280,80]}
+  ],
+  "connections":[
+    {"from":"evidence","to":"held","label":"capture"},
+    {"from":"held","to":"response","label":"foreground continues"},
+    {"from":"response","to":"worker","label":"release on completion","fromSide":"bottom","toSide":"top","labelAt":[1060,250]},
+    {"from":"worker","to":"verdict","label":"evaluate"},
+    {"from":"verdict","to":"commit","label":"guarded application"},
+    {"from":"worker","to":"future","label":"proposed evolution","variant":"dashed","fromSide":"bottom","toSide":"top","labelAt":[1060,525]}
+  ],
+  "cards":[
+    {"dot":"cyan","title":"Completion is server-observed","items":["API body completion releases jobs; tool handoffs do not. Native chat releases after message publication."]},
+    {"dot":"amber","title":"Recovery has limits","items":["Disconnect cancels held work. Memory-first persistence can lose unpublished changes on process failure."]}
+  ]
+}
