@@ -1,5 +1,11 @@
 # CCM — Composite Cognitive Model
 
+<p align="center">
+  <a href="https://github.com/toreuyar/CCM/actions/workflows/ci.yml"><img src="https://github.com/toreuyar/CCM/actions/workflows/ci.yml/badge.svg?branch=master" alt="CI status"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://www.rust-lang.org/"><img src="https://img.shields.io/badge/Language-Rust-dea584.svg" alt="Language: Rust"></a>
+</p>
+
 CCM composes language models, specialist agents and workflows behind an
 OpenAI-compatible chat-completions interface. **Foreman** coordinates work and
 composes responses; reusable specialists and bounded workflow graphs execute it.
@@ -8,6 +14,11 @@ The Rust server includes a web dashboard, bearer-key/workforce isolation,
 Streamable HTTP MCP, client-tool continuations, background operations and
 definition-level improvement. This is orchestration, not model-weight training
 or a claim of superior answer quality.
+
+![CCM dashboard showing a sample release plan, specialist execution trace, and Foreman's composed response](docs/images/dashboard-demo.png)
+
+*Demo data: the running CCM dashboard with fictional runs, agents, outputs, and
+metrics seeded for illustration.*
 
 ## Platform support
 
